@@ -1,0 +1,174 @@
+.who{
+	height: 650px;
+}
+
+.who-head{
+	text-align: left;
+	margin: 30px;
+}
+
+.head{
+	font-size:34px;
+	font-family: sans-serif;
+	text-transform: uppercase;
+}
+
+.head p{margin: auto;padding: 20px;}
+
+.who-text{height: 550px;}
+
+.who-text img{
+	width: 600px;
+	height: 500px;
+	float:right;
+	margin: 20px;
+}
+
+.who-text p{text-align: left;
+	font-size: 24px;
+	font-family: sans-serif;
+	margin: 30px;
+}
+
+.what{height: 900px;background-color: LIGHTYELLOW;}
+
+.clmns{
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+	-moz-column-count: 3; /* Firefox */
+	column-count: 3;
+	-webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+	-moz-column-gap: 10px; /* Firefox */
+	column-gap: 10px;
+	/* -webkit-column-rule: 1px solid lightblue; */ /* Chrome, Safari, Opera */
+	-moz-column-rule: 1px solid lightblue; /* Firefox */
+	/* column-rule: 1px solid #00020a; */
+	-webkit-column-width: 150px; /* Chrome, Safari, Opera */
+	-moz-column-width: 150px; /* Firefox */
+	column-width: 150px;
+	z-index: 1;
+	/* background-color: lightblue; */
+	margin-left: 52px;
+}
+
+
+.col{
+	border: 2px solid;
+	border-color: lightgray;
+	border-radius: 4px;
+	height: 600px;
+	width: 350px;
+	padding: 22px;
+	background-color: white;
+}
+
+.col-head p{
+	font-size: 36px;
+	color: #010f48;
+}
+
+.col-text p{
+	font-size: 24px;
+	padding: 26px;
+	color: #8a8a8a;
+}
+
+.col-pic{
+    width: 100%;
+}
+
+.col-pic img{
+	display: inline-block;
+	margin-right: 58px;
+	position: relative;
+	margin-bottom: -30px;
+}
+
+.col-head{
+
+}
+
+.col-text{
+
+}
+
+.column1{
+
+}
+
+.column2{
+
+}
+
+.column3{
+
+}
+
+.why{height: 455px;background-image: url(Images/why-bkgd.jpg);background-size: cover;background-position: center;}
+
+.why .head{
+    background-color: #000c3c;
+    height: 75px;
+}
+ 
+.why .head p{
+    margin: auto;
+    padding: 16px;
+    color: white;
+}
+
+.why-text {height: 300px;/* background-image: url("Images/why-bkgd.jpg"); */}
+
+.why-text p{height: 150px;font-size: 27px;font-family: sans-serif;text-align: left;margin: 30px;font-weight: 600;}
+
+.why-text img{
+	height: 300px;
+	width: 450px;
+	float: right;
+}
+
+.overlay{
+	background-color: blue transparent;
+}
+
+.arrow-down {
+	width: 0;
+	height:0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 30px solid #000c3c;
+	position: absolute;
+	margin-left: 680px;
+	margin-top: 75px;
+}
+
+.need{height: 250px;margin: auto;background: lightyellow;}
+
+.need-text{
+	margin:auto;
+}
+
+.need-head{
+	margin:auto;
+}
+
+.need-text p{}
+ 
+.donate-box{height: 80px;margin: auto;margin-left: 646px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
