@@ -14,7 +14,7 @@
 					<li><input type="text" placeholder="Search"><a href="#" class="fa fa-search"></a></li>
 				</ul>	
 			</div>
-			<div class="Join">Join</div>
+			<div class="Join">Join</div>	
 			<div class="Login">Login</div>
 			<div class="marg-text">Change a life  -</div>
 			<div class="donate"><a href="#"></a>Donate today</div>
@@ -34,5 +34,18 @@
 			</div>
 		</div>
 	</div>	
+	<?php 
+		include("Includes/signup.php");
+		include ("login.php");?>
+
+	<script type="text/javascript">
+		
+		var joinBtn = document.querySelector('.Join');
+
+		joinBtn.onclick = function(event) {
+			modal.style.display = "block";
+		}
+	</script>
 </body>
 </html>
+
