@@ -4,12 +4,13 @@
     <span class="close" title="Close Modal">X</span>
     <form method="POST" class="modal-content animate" action="<?= ROOT_URL ?>signup-action.php">
       <div class="container">
+        <div class="signup"><p>Join us to help change lives!</p></div>
         <input type="text" placeholder="First Name" name="firstname" value="Destinie" required>   
         <input type="text" placeholder="Last Name" name="lastname" value="Santamaria" required> 
         <input type="text" placeholder="Enter Email" name="email" value="destinie.santamaria@gmail.com" required> 
         <input type="password" placeholder="Enter Password" name="password" value="destinie" required> 
         <input type="password" placeholder="Repeat Password" name="psw-repeat" value="destinie" required> 
-        <input type="checkbox" checked="checked"> Remember me
+        <p><input type="checkbox" checked="checked"> Remember me</p>
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
         <div class="clearfix">
