@@ -2,7 +2,7 @@
 <div id="signup_element">  
   <div id="id01" class="modal">
     <span class="close" title="Close Modal">X</span>
-    <form class="modal-content animate" action="/action_page.php">
+	<form class="modal-content animate" action="<?= ROOT_URL ?>action_page.php">
       <div class="container">
         <label><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
