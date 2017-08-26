@@ -61,8 +61,9 @@
 
 #login_element .clearfix{
     background-color: #f1f1f1;
-    height: 5%;
+    min-height: 63px;
     margin: 0;
+    /* clear: both; */
 }
 
 span.psw{
@@ -92,17 +93,17 @@ span.psw{
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 30%; /* Could be more or less, depending on screen size */
+    position: relative;
 }
 
 
 /* The Close Button (x) */
 #login_element .close2 {
     position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
+    right: 7px;
+    top: 5px;
+    color: rgb(206, 206, 206);
+    font-size: 15px;
 }
 
 #login_element .close2:hover,

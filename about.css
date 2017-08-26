@@ -30,7 +30,7 @@
 	margin: 30px;
 }
 
-.what{height: 900px;background-color: LIGHTYELLOW;}
+.what{height: 900px;background-color: LIGHTYELLOW;margin-top: 37px;}
 
 .clmns{
 	-webkit-column-count: 3; /* Chrome, Safari, Opera */

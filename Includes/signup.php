@@ -1,9 +1,9 @@
 <link rel="stylesheet" type="text/css" href="signup.css">
 <div id="signup_element">  
   <div id="id01" class="modal">
-    <span class="close" title="Close Modal">X</span>
     <form method="POST" class="modal-content animate" action="<?= ROOT_URL ?>signup-action.php">
       <div class="container">
+        <span class="close" title="Close Modal">X</span>
         <div class="signup"><p>Join us to help change lives!</p></div>
         <input type="text" placeholder="First Name" name="firstname" value="Destinie" required>   
         <input type="text" placeholder="Last Name" name="lastname" value="Santamaria" required> 

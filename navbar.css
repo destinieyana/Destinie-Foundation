@@ -126,7 +126,7 @@ a.fa{
 
 .donate:active{
 	background-color: white;
-	box-shadow: 0 3px #666;
+	box-shadow: 0 3px rgba(102, 102, 102, 0.44);
 	transform: translateY(4px);
 }
 
