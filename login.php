@@ -1,22 +1,3 @@
-<!--<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="login.css">
-</head>
-<body>
-	<form method="POST" action="<?= ROOT_URL ?>login_action.php">
-		<input type="text" name="username" placeholder="username" required>
-		<input type="text" name="password" placeholder="password" required>
-		<input type="submit" value="Login">
-		<?php
-			if ($_GET['login'] == "failed") { ?>
-				<div>Sorry, wrong username or password</div>
-			<?php }
-		?>
-	</form>		
-</body>
-</html>-->
-
-
 <link rel="stylesheet" type="text/css" href="login.css">
 <div id="login_element">  
 	<div id="id02" class="modal2">
@@ -36,7 +17,7 @@
           		<button type="button" class="cancelbtn2">Cancel</button>
           		<span class="psw"><a href="#">Forgot Password?</a>.</span>
           		<?php
-					if ($_GET['login'] == "failed") { ?>
+					if (isset($_GET['login']) && $_GET['login'] == "failed") { ?>
 					<div>Sorry, wrong username or password</div>
 				<?php }
 				?>
