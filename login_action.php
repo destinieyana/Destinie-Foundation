@@ -20,7 +20,7 @@ $results = $pdoStmt->fetchAll();
 if ($_POST['password'] === $results[0]['password']){
 	header('Location: index.php');
 } else {
-	echo "Wrong password!";
+	header('Location: index.php?login=failed');
 }
 
 ?>

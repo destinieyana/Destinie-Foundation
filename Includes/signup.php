@@ -2,13 +2,13 @@
 <div id="signup_element">  
   <div id="id01" class="modal">
     <span class="close" title="Close Modal">X</span>
-	<form class="modal-content animate" action="<?= ROOT_URL ?>action_page.php">
+    <form method="POST" class="modal-content animate" action="<?= ROOT_URL ?>signup-action.php">
       <div class="container">
-        <input type="text" placeholder="First Name" name="name" required>
-        <input type="text" placeholder="Last Name" name="name" required>
-        <input type="text" placeholder="Enter Email" name="email" required>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        <input type="text" placeholder="First Name" name="firstname" value="Destinie" required>   
+        <input type="text" placeholder="Last Name" name="lastname" value="Santamaria" required> 
+        <input type="text" placeholder="Enter Email" name="email" value="destinie.santamaria@gmail.com" required> 
+        <input type="password" placeholder="Enter Password" name="password" value="destinie" required> 
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" value="destinie" required> 
         <input type="checkbox" checked="checked"> Remember me
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
