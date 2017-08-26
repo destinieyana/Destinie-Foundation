@@ -20,8 +20,8 @@
 <link rel="stylesheet" type="text/css" href="login.css">
 <div id="login_element">  
 	<div id="id02" class="modal2">
-    	<span class="close2" title="Close Modal">X</span>
     	<form method="POST" class="modal-content animate" action="<?= ROOT_URL ?>login-action.php">
+			<span class="close2" title="Close Modal">X</span>
       		<div class="imgcontainer">
       			<img src="Images/desFoundationLogo.jpg" alt="Logo" class="logo">
       			<p> Welcome Back!</p>

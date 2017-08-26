@@ -17,10 +17,12 @@
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px 1;
     border: none;
     cursor: pointer;
     /* width: 100%; */
+    box-sizing: border-box;
+    float: right;
 }
 
 /* Extra styles for the cancel button */
@@ -30,11 +32,12 @@
 }
 
 /* Float cancel and signup buttons and add an equal width */
-#signup_element .cancelbtn,.signupbtn {float:left;width:50%}
+#signup_element .cancelbtn,.signupbtn {float:left;width: 49%;}
 
 /* Add padding to container elements */
 #signup_element .container {
     padding: 16px;
+    position: relative;
 }
 
 #signup_element .container .signup p{
@@ -91,11 +94,10 @@
 /* The Close Button (x) */
 #signup_element .close {
     position: absolute;
-    right: 35px;
-    top: 15px;
-    color: #000;
-    font-size: 40px;
-    font-weight: bold;
+    right: 7px;
+    top: 5px;
+    color: rgb(206, 206, 206);
+    font-size: 15px;
 }
 
 #signup_element .close:hover,
