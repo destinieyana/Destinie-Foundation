@@ -18,7 +18,7 @@
 			<div class="Join">Join</div>	
 			<div class="Login">Login</div>
 			<div class="marg-text">Change a life  -</div>
-			<div class="donate"><a href="donate.php">Donate today</a></div>
+			<div class="donate"><a href="donate.php" target="_blank">Donate today</a></div>
 		</div>
 		<div class="navbar">
 			<div class="logo">
