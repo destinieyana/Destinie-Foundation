@@ -46,11 +46,18 @@
 		</div>
 		<div class="tribute">
 			<h2>Would you like to make this a tribute gift?</h2>
-			<input type="checkbox" value="One-time gift"><p>Yes, make this gift</p><select>
-				<option value="honor">in honor of</option>
-				<option value="memory">in memory of</option>
-			</select>
-			<input type="text" placeholder="Name of Honoree">
+			<div class="tribute2">
+				<input type="checkbox" class="checkbox" value="One-time gift">Yes, make this gift  
+			</div>
+			<div class="select">
+				<select>
+					<option value="honor">in honor of</option>
+					<option value="memory">in memory of</option>
+				</select>
+			</div>
+			<div class="honor">
+				<input type="text" class="honoree" placeholder="Name of Honoree">
+			</div>
 		</div>
 	</div>
 	<div class="sec3 sec">

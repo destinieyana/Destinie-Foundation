@@ -131,13 +131,23 @@ span.req{
 
 }
 
-.tribute option{
-
+.sec2 .tribute .tribute2{
+	font-size: 22px;
+	padding: 2%;
 }
 
-.tribute input{
+.tribute .tribute2 .checkbox{}
 
+.tribute .select{
 }
+
+.tribute .select select{height: 5%;width: 20%;font-size: 20px;}
+
+.tribute .honor{}
+
+.tribute .honor .honoree{height: 5%;width: 28%;border-radius: 5px;font-size: 20px;}
+
+
 
 .sec3{
 
