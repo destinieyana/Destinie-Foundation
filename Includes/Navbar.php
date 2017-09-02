@@ -1,4 +1,3 @@
-<?php require_once('./bootstrap.php');?>
 <html>
 <head>
 </head>
@@ -46,7 +45,6 @@
 	<script type="text/javascript">
 		
 		var joinBtn = document.querySelector('.Join');
-    console.log(modal);
 
 		joinBtn.onclick = function(event) {
 			modal.style.display = "block";

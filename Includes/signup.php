@@ -20,18 +20,16 @@
     </form>
   </div> 
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+
   <script>
 
     // Get the modal
     var modal = document.getElementById('id01');
-    console.log(modal);
+
 
     // When the user clicks anywhere outside of the modal, close it
     modal.onclick = function(event) { 
+      if (event.target == modal) 
       modal.style.display = "none";
     }
 
@@ -48,24 +46,23 @@
     }
 
     var signUp = document.querySelector('.signupbtn');
+    $(document).ready(function() {
     
-    signUp.onclick = function(event) {
-      alert("its happening now");
-      jQuery.validator.setDefaults({
-        debug: true,
-        success: "valid"
-      });
 
-      $( ".modal-content" ).validate({
-        rules: {
-          password: "required",
-
-          pass_repeat: {
-            equalTo: "#password"
-        }
-      }
-    });
-  }
+        $(".modal-content").validate({
+          rules: {
+            password: "required",
+            pass_repeat: {
+                equalTo: "#password"
+            }
+          },
+          submitHandler: function(form) {
+            alert("Its happening again");
+            $(form).ajaxSubmit();
+          }
+        });
+    })
+    
 
 
   </script>
