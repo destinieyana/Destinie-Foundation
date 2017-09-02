@@ -29,8 +29,8 @@
 			<div class="cols">
 				<div class="freq">
 					<h2>Gift Frequency<span class="req">*</span></h2>
-					<div class="freq1"><input type="radio" checked="checked" value="One">One-time gift<br></div>
-					<div class="freq2"><input type="radio" value="Recurring">Recurring monthly gift<br></div>
+					<div class="freq1"><input type="radio" checked="checked" class="radio-button" value="One">One-time gift<br></div>
+					<div class="freq2"><input type="radio" class="radio-button" value="Recurring">Recurring monthly gift<br></div>
 				</div>
 				<div class="sponsor">
 					<h2>Gift Designation</h2>
@@ -98,7 +98,7 @@
 	<div class="sec6 sec">
 		<p>By clicking the above button you agree to have your debit or credit card charged by Project C.U.R.E. Please review your submission, click Donate Now ONLY ONCE and allow a few moments for us to process your card. Your donation is secure and encrypted.</p>
 	</div>
-	<?php include("Footer.php");?>
+	<?php include("Includes/Footer.php");?>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -114,7 +114,24 @@
 		$(".hide").show();
 	});
 
-
+	$('.radio-button').on("click", function (event) {
+       var this_input = $(this);
+       if (this_input.attr('checked1') == '11') {
+           this_input.attr('checked1', '11')
+        }
+        else {
+            this_input.attr('checked1', '22')
+        }
+    $('.radio-button').prop('checked', false);
+        if (this_input.attr('checked1') == '11') {
+            this_input.prop('checked', false);
+            this_input.attr('checked1', '22')
+        }
+        else {
+            this_input.prop('checked', true);
+            this_input.attr('checked1', '11')
+        }
+    });
 	</script>
 </body>
 </html>

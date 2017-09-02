@@ -1,4 +1,6 @@
-	<?php
+<?php
+
+	ob_start();
 
 	$hostname= 'localhost';
 	$username='root';
@@ -7,7 +9,7 @@
 
 
 
-	if ($_POST['password']!= $_POST['psw-repeat']){
+	if ($_POST['password']!= $_POST['pass_repeat']){
 		echo("Passwords do not match. Please try again.");
 	} else {
 
@@ -22,3 +24,6 @@
 		$pdoStmt->bindValue(":password", $_POST['password']);
 		$pdoStmt->execute();
 	}
+
+	header('Location: index.php');
+?>

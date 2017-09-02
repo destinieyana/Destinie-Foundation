@@ -28,14 +28,8 @@
 				<div class="text">
 					<h3>Be the light in a child's life</h3>
 				</div>
-				<div class="form">
-					<div class="email">
-						<input type="email" name="email"/>
-					</div>
-					<div class="join-button">Join</div>
-				</div>	
+				<div class="donate"><a href="donate.php" target="_blank">Donate today</a></div>
 			</div>
-
 		</div>
 		<div class="info-box">
 			<div class="stats-box">

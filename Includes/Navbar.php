@@ -12,11 +12,15 @@
 					<li><a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a></li>
 					<li><a href="https://twitter.com/" target="_blank" class="fa fa-twitter"></a></li>
 					<li><a href="https://www.youtube.com/" target="_blank" class="fa fa-youtube"></a></li>
-					<li><input type="text" placeholder="Search"><a href="#" class="fa fa-search"></a></li>
 				</ul>	
 			</div>
-			<div class="Join">Join</div>	
-			<div class="Login">Login</div>
+			<?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
+				<form action="<?= ROOT_URL ?>logout_action.php" method="POST">
+				<button type="submit" class="logout">Logout</button></form> 
+			<?php } else { ?>
+				<div class="Join">Join</div>	
+				<div class="Login">Login</div>
+			<?php } ?>
 			<div class="marg-text">Change a life  -</div>
 			<div class="donate"><a href="donate.php" target="_blank">Donate today</a></div>
 		</div>
@@ -42,6 +46,7 @@
 	<script type="text/javascript">
 		
 		var joinBtn = document.querySelector('.Join');
+    console.log(modal);
 
 		joinBtn.onclick = function(event) {
 			modal.style.display = "block";
@@ -52,6 +57,7 @@
 		loginBtn.onclick = function(event) {
 			modal2.style.display = "block";
 		}
+
 	</script>
 </body>
 </html>

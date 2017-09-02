@@ -16,7 +16,7 @@ body{
 	/* background-color: #FF6A5C; */
 	background-size: cover;
 	background-attachment: scroll;
-	height: 375px;
+	height: 435px;
 	/* width: 1290px; */
 	-webkit-background-size: contain;
 	background-repeat: no-repeat;
@@ -49,7 +49,7 @@ body{
 	font-style: italic;
 }
 
-.banner-button{
+.banner-button, .join-sec .join-box .donate{
 	background-color: #F7B733;
 	color: white;
 	font-size: 16px;
@@ -80,9 +80,8 @@ body{
 
 
 .join-sec{
-	margin-top: 82px;
 	clear: both;
-	height: 110px;
+	height: 148px;
 	background-color: #FFFFFF;
 	padding-top: 1px;
 }
@@ -93,38 +92,21 @@ body{
 	margin: auto;
 }
 
-.join-sec .join-box .form{
-/* margin: auto; */
-}
 
 .join-sec .join-box .text{
-	margin: -6px;
-	font-size: 18px;
+	margin: auto;
 	font-weight: bold;
 	font-family: fantasy;
 	font-style: italic;
-	font-size: 20px;
+	font-size: 22px;
 	color: #FFC559;
 }
 
-.join-sec .join-box .email{
-	/* float: left; *//* margin-left: 109px; */
+.join-sec .join-box .donate{
 	display: inline;
+	margin-top: -18px;
 }
 
-.join-sec .join-box .email input{
-	width: 164px;
-	height: 22px;
-}
-
-.join-sec .join-box .join-button{
-	background-color: #F7B733;
-	display: inline;
-	padding: 3px;
-	color: white;
-	text-transform: uppercase;
-	font-size: 14px;
-}
 
 .info-box{
 	height: 394px;
