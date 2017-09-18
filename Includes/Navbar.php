@@ -1,24 +1,20 @@
-<html>
-<head>
-</head>
-<body>
-	<div class="nav">
-		<div id="top-margin">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-			<div class="icon">
-				<ul>
-					<li><a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a></li>
-					<li><a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a></li>
-					<li><a href="https://twitter.com/" target="_blank" class="fa fa-twitter"></a></li>
-					<li><a href="https://www.youtube.com/" target="_blank" class="fa fa-youtube"></a></li>
-				</ul>	
-			</div>
-			<?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
-				<form action="<?= ROOT_URL ?>logout_action.php" method="POST">
-				<button type="submit" class="logout">Logout</button></form> 
+<div class="nav">
+	<div id="top-margin">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<div class="icon">
+			<ul>
+				<li><a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a></li>
+				<li><a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a></li>
+				<li><a href="https://twitter.com/" target="_blank" class="fa fa-twitter"></a></li>
+				<li><a href="https://www.youtube.com/" target="_blank" class="fa fa-youtube"></a></li>
+			</ul>	
+		</div>
+		<?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
+		<form action="<?= ROOT_URL ?>logout_action.php" method="POST">
+			<button type="submit" class="logout">Logout</button></form> 
 			<?php } else { ?>
-				<div class="Join">Join</div>	
-				<div class="Login">Login</div>
+			<div class="Join">Join</div>	
+			<div class="Login">Login</div>
 			<?php } ?>
 			<div class="marg-text">Change a life  -</div>
 			<div class="donate"><a href="donate.php" target="_blank">Donate today</a></div>
@@ -40,23 +36,24 @@
 	</div>	
 	<?php 
 		include("Includes/signup.php");
-		include ("login.php");?>
+		include ("login.php");
+	?>
 
-	<script type="text/javascript">
-		
-		var joinBtn = document.querySelector('.Join');
+<script type="text/javascript">
 
-		joinBtn.onclick = function(event) {
-			modal.style.display = "block";
-		}
+	var joinBtn = document.querySelector('.Join');
 
-		var loginBtn = document.querySelector('.Login');
+	joinBtn.onclick = function(event) {
+		modal.style.display = "block";
+	}
 
-		loginBtn.onclick = function(event) {
-			modal2.style.display = "block";
-		}
+	var loginBtn = document.querySelector('.Login');
 
-	</script>
-</body>
-</html>
+	loginBtn.onclick = function(event) {
+		modal2.style.display = "block";
+	}
+
+</script>
+
+
 

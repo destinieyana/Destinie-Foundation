@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="login.css">
 <div id="login_element">  
 	<div id="id02" class="modal2">
-    	<form method="POST" class="modal-content animate" action="<?= ROOT_URL ?>login_action.php">
+    	<form method="POST" id="login-info" class="modal-content animate" action="<?= ROOT_URL ?>login_action.php">
 			<span class="close2" title="Close Modal">X</span>
       	<div class="imgcontainer">
       		<img src="Images/desFoundationLogo.jpg" alt="Logo" class="logo">

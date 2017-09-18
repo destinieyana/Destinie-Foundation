@@ -1,29 +1,44 @@
 <?php
 
-	ob_start();
+ob_start();
 
-	$hostname= 'localhost';
-	$username='root';
-	$password='root';
-	$database='foundation';
+$hostname='localhost';
+$dbusername='root';
+$password='root';
+$database='foundation';
+
+
+$conn = new PDO("mysql:host=$hostname;dbname=$database",$dbusername,$password);
+
+$email = $_POST['email'];
 
 
 
-	if ($_POST['password']!= $_POST['pass_repeat']){
-		echo("Passwords do not match. Please try again.");
-	} else {
+$sql = "SELECT * FROM `users` where email = :email";
 
-		$conn = new PDO("mysql:host=$hostname;dbname=$database",$username,$password);
 
-		$sql = "INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`) VALUES (:firstname, :lastname, :email, :password);"; 
+$pdoStmt = $conn->prepare($sql);
+$pdoStmt->bindValue(":email", $_POST['email']);
+$pdoStmt->execute();
 
-		$pdoStmt = $conn->prepare($sql);
-		$pdoStmt->bindValue(":firstname", $_POST['firstname']);
-		$pdoStmt->bindValue(":lastname", $_POST['lastname']);
-		$pdoStmt->bindValue(":email", $_POST['email']);
-		$pdoStmt->bindValue(":password", $_POST['password']);
-		$pdoStmt->execute();
-	}
 
-	header('Location: index.php');
+$results = $pdoStmt->fetchAll();
+
+
+if ($_POST['email'] === $results[0]['email']){
+	echo "User Already Exists";
+} else {
+	$sql = "INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`) VALUES (:firstname, :lastname, :email, :password);"; 
+
+	$pdoStmt = $conn->prepare($sql);
+	$pdoStmt->bindValue(":firstname", $_POST['firstname']);
+	$pdoStmt->bindValue(":lastname", $_POST['lastname']);
+	$pdoStmt->bindValue(":email", $_POST['email']);
+	$pdoStmt->bindValue(":password", $_POST['password']);
+	$pdoStmt->execute();
+
+	echo "User Created";
+
+}
+
 ?>

@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
 <div class="footer">
 	<div class="footer-widgets">
 		<div class="footer-column">
@@ -42,5 +36,3 @@
 		</div>
 	</div>
 </div>
-</body>
-</html>

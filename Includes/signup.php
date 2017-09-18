@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="signup.css">
 <div id="signup_element">  
   <div id="id01" class="modal">
-    <form method="POST" class="modal-content animate" action="<?= ROOT_URL ?>signup-action.php">
+    <form method="POST" id="signup-info" class="modal-content animate" action="<?= ROOT_URL ?>signup-action.php">
       <div class="container">
         <span class="close" title="Close Modal">X</span>
         <div class="signup"><p>Join us to help change lives!</p></div>
@@ -21,7 +21,7 @@
   </div> 
 </div>
 
-  <script>
+<script>
 
     // Get the modal
     var modal = document.getElementById('id01');
@@ -30,7 +30,7 @@
     // When the user clicks anywhere outside of the modal, close it
     modal.onclick = function(event) { 
       if (event.target == modal) 
-      modal.style.display = "none";
+        modal.style.display = "none";
     }
 
     var cncl = document.querySelector('.cancelbtn');
@@ -47,22 +47,56 @@
 
     var signUp = document.querySelector('.signupbtn');
     $(document).ready(function() {
-    
 
-        $(".modal-content").validate({
-          rules: {
-            password: "required",
-            pass_repeat: {
-                equalTo: "#password"
-            }
+
+      $("#signup-info").validate({
+        rules: {
+          password: "required",
+          pass_repeat: {
+            equalTo: "#password"
           },
-          submitHandler: function(form) {
-            alert("Its happening again");
-            $(form).ajaxSubmit();
+          email: {
+            required: true,
+            email: true
           }
-        });
-    })
-    
+        }, 
+        messages: {
+          firstname: "Please enter your First Name",
+          lastname: "Please enter your Last Name",
+          email: {
+            required: "Please enter a valid email in the form of name@domain.com",
+            email: "Please enter a valid email in the form of name@domain.com"
+          }
+        },
 
+
+        submitHandler: function(form) {
+          event.preventDefault();// using this page stop being refreshing 
+
+          $.ajax({
+            type: 'POST',
+            url: 'signup-action.php',
+            data: $(form).serialize(),
+            success: function (data, status, jqXHR) {
+              if (data == "User Already Exists") {
+                console.log(data);
+                $('#id01 .signup').html(data);
+              } else if (data == "User Created") {
+                console.log(data);
+                $('#id01 .signup').html(data);
+              } else {
+                console.log("Something went wrong");
+                $('#id01 .signup').html(data);
+              }
+            },
+            error: function (jqXHR, status, error) {
+              $('#id01 .signup').html("Something went wrong");
+            }
+          }); 
+        }
+      });
+    });
+    
+    
 
   </script>

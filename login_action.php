@@ -14,11 +14,11 @@ $conn = new PDO("mysql:host=$hostname;dbname=$database",$username,$password);
 
 
 
-$sql = "SELECT * FROM `users` where email = :username and password = :password;";
+$sql = "SELECT * FROM `users` where email = :email and password = :password;";
 
 
 $pdoStmt = $conn->prepare($sql);
-$pdoStmt->bindValue(":username", $_POST['email']);
+$pdoStmt->bindValue(":email", $_POST['email']);
 $pdoStmt->bindValue(":password", $_POST['password']);
 $pdoStmt->execute();
 

@@ -9,8 +9,9 @@
 </head>
 <body>
 	<div id="cont"> 
-			<?php 
-			include ("Includes/Navbar.php");?>
+		<?php 
+			include ("Includes/Navbar.php");
+		?>
 		<div class="banner">
 			<div class="in-banner">
 				<img src="Images/homePic2.jpg" alt="Banner Pic"/>
@@ -40,7 +41,7 @@
 					</div>	
 					<div class="desc0">
 						<p>It is estimated that 153 million children worldwide are orphans.</p>
-					<!--<div class="arrow-down"></div>-->
+						<!--<div class="arrow-down"></div>-->
 					</div>
 					<div class="learn-button">Learn More</div>
 				</div>
@@ -94,10 +95,9 @@
 				</div>
 			</div>
 		</div>
-		
 		<?php
-		 include("Includes/donatePrompt.php");
-		 include("Includes/Footer.php");
+			include("Includes/donatePrompt.php");
+			include("Includes/Footer.php");
 		?>
 	</div>
 </body>
