@@ -5,12 +5,12 @@ session_start();
 
 
 $hostname='localhost';
-$username='root';
-$password='root';
+$dbusername='root';
+$dbpassword='root';
 $database='foundation';
 
 // Connect to the database
-$conn = new PDO("mysql:host=$hostname;dbname=$database",$username,$password);
+$conn = new PDO("mysql:host=$hostname;dbname=$database",$dbusername,$dbpassword);
 
 
 
@@ -33,11 +33,12 @@ if ($_POST['password'] === $results[0]['password']){
 	);
 	unset($results[0]['password']);
 	$_SESSION['user_record'] = $results[0];
-	header('Location: index.php');
+	echo "Welcome!";
 } else {
 	//header('Location: index.php?login=failed');
 	echo "Wrong Email or Password";
 }
+
 
 
 //echo 'Welcome '.$_SESSION['username'];
