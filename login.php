@@ -80,11 +80,10 @@
           url: 'login_action.php',
           data: $(form).serialize(),
           success: function (data, status, jqXHR) {
+            console.log(data);
             if (data == "Wrong Email or Password") {
-              console.log(data);
               $('#wrng-pass').html(data);
             } else if (data == "Welcome!"){
-                console.log(data);
                 wmodal.style.display = "block";
                 modal2.style.display= "none";
             } else {
@@ -93,7 +92,7 @@
             }
           },
           error: function (jqXHR, status, error) {
-            $('wrng-pass').html("Something went wrong");
+            $('#wrng-pass').html("Something went wrong");
           }
         }); 
       }
