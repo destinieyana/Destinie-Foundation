@@ -36,10 +36,9 @@ if ($results && password_verify($password, $results[0]['password'])){
 	echo "Welcome!";
 	
 } else {
-	//header('Location: index.php?login=failed');
 	echo "Wrong Email or Password";
-
 }
+
 
 
 ?>

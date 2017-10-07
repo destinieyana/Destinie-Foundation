@@ -1,4 +1,4 @@
-<?php require_once('./bootstrap.php');?>
+<?php include ('passwordConverter.php'); require_once('./bootstrap.php');?>
 <html>
 <head>
 	<title>Destinie Foundation</title>
