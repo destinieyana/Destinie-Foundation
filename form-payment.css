@@ -1,0 +1,54 @@
+.formPaymentElement{ }
+.formPaymentElement .cards{width: 182px;height: 29px;background-size: contain;margin: 5px;}
+.formPaymentElement form{ }
+.formPaymentElement form .section{}
+
+.formPaymentElement .section.z fieldset .group .a{float: left;margin-right: 10px;}
+.formPaymentElement .section.z fieldset .group .b{ }
+
+.formPaymentElement form .section.a{}
+.formPaymentElement form .section.half{
+    width: 50%;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.formPaymentElement form .section.b{
+
+}
+.formPaymentElement form .section.c{
+
+}
+.formPaymentElement form .title{font-size: 16px;width: 50%;background-color: white;margin-bottom: -10px;margin-left: 5px;}
+.formPaymentElement form fieldset.a{
+    /* display: none; */
+}
+.formPaymentElement form fieldset.a .group{
+    
+}
+.formPaymentElement form fieldset.b{
+    float: left;
+}
+.formPaymentElement form fieldset.b .group{}
+.formPaymentElement form fieldset.c{
+    /* display: none; */
+}
+.formPaymentElement form fieldset.c .group{
+    
+}
+.formPaymentElement form fieldset{padding: 20px;border: 1px solid #E7E7E7;}
+.formPaymentElement form fieldset .group{margin-bottom: 23px;}
+.formPaymentElement form fieldset .group label{color: blue;}
+.formPaymentElement form fieldset .group input{background-color: #F6F6F6;padding: 5px;color: black;/* border-bottom: 1px solid #CDCDCD; */}
+
+.formPaymentElement form .group.l{clear: both;padding: 10px;}
+.formPaymentElement form .group.l button{float: right;}
+.formPaymentElement form .group.l input{ }
+.formPaymentElement form .group.l label{ }
+.formPaymentElement form .group.l a{ }
+
+.formPaymentElement form .group.k{
+    height: 30px;
+}
+.formPaymentElement form .group.k input{margin: 3px;}
+.formPaymentElement form .group.k span{color: gray;}
