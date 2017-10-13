@@ -1,3 +1,4 @@
+<?php require_once('./bootstrap.php');?>
 <html>
 <head>
 	<title>About</title>
@@ -76,7 +77,7 @@
 			<p>With your help, we can change the lives of orphans around the world.</p>
 			<p>Will you join us?</p>
 			<div class="donate-box">
-				<div class="donate">Donate Now</div>
+				<div class="donate donatePage">Donate Now</div>
 			</div>
 		</div>
 	</div>

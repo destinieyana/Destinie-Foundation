@@ -9,7 +9,7 @@
 			<h1>Welcome Back!<h1>
 			<p>Thank you for supporting the Destinie Foundation! We are excited to help children around the world light up a new path to live their destiny.</p>
 			<span>Ready to make a donation?</span>
-			<div class="donate"><a href="donate.php" target="_blank">Donate Now</a></div>
+			<div class="donate donatePage"><a href="donate.php" target="_blank">Donate Now</a></div>
 		</div>
 	</div>
 </div>

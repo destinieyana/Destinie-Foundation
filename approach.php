@@ -1,3 +1,4 @@
+<?php require_once('./bootstrap.php');?>
 <html>
 <head>
 	<title>Approach</title>
@@ -7,7 +8,7 @@
 </head>
 <body>
 	<?php 
-		include ("Includes/navbar.php"); ?>
+		include ("Includes/Navbar.php"); ?>
 	<div class="bod">
 		<!--<div class="blank"></div>-->
 		<div class="method">
@@ -55,7 +56,7 @@
 			<p>Change a Life Today!</p>
 			<p>Make a Donation</p>
 			<div class="donate-box">
-				<div class="donate">Donate Now</div>
+				<div class="donate donatePage">Donate Now</div>
 			</div>
 		</div>
 
@@ -64,3 +65,7 @@
 	</div>
 </body>
 </html>
+
+<script>
+	
+</script>

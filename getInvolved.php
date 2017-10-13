@@ -1,3 +1,4 @@
+<?php require_once('./bootstrap.php');?>
 <html>
 <head>
 	<title>Get Involved</title>
@@ -28,7 +29,7 @@
 					<div class="descr">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt fermentum est, ut porta metus placerat ac. Aliquam id risus laoreet nisl vehicula commodo et a neque. Mauris et ullamcorper enim, ut sollicitudin neque. Nam tortor arcu, pharetra bibendum quam et, viverra accumsan metus. Integer interdum sem nisl, sit amet lacinia est pretium id.</p>
 					</div>
-					<button type="button">Donate</button>
+					<button class="donatePage" type="button">Donate</button>
 				</div>
 				<div class="method2">
 					<div class="titles">
@@ -59,7 +60,7 @@
 					<div class="descr">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt fermentum est, ut porta metus placerat ac. Aliquam id risus laoreet nisl vehicula commodo et a neque. Mauris et ullamcorper enim, ut sollicitudin neque. Nam tortor arcu, pharetra bibendum quam et, viverra accumsan metus. Integer interdum sem nisl, sit amet lacinia est pretium id.</p>
 					</div>
-					<button type="button">Sponsor</button>
+					<button class="donatePage" type="button">Sponsor</button>
 				</div>
 			</div>
 		</div>
@@ -68,3 +69,15 @@
 		include ("Includes/Footer.php");?>
 </body>  
 </html>
+
+<script type="text/javascript">
+
+	var newPage = document.querySelector('.donatePage');
+
+	newPage.onclick = function(event){
+		window.open('donate.php');
+		return false;
+	}
+
+	
+</script>
