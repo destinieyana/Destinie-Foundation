@@ -45,6 +45,7 @@ $(document).ready(function() {
         window.open('./donate.php');
         return false;
     })
+
 });
 
 

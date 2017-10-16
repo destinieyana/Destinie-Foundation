@@ -7,19 +7,20 @@ body{
 	/* border:2px solid; */
 	/* border-color: black; */
 	background: #fff;
-	width:75%;
+	width: 1418px;
 	box-shadow: 0 0 10px #00020a;
 	border-radius: 5px;
 	margin:auto;
+	/* min-width: 75%; */
 }
 
 .sec1{
-	height: 33%;
+	height: 350px;
 }
 
 .sec1 p{
 	font-size: 28px;
-	margin: 18px;
+	margin: 0 35px 0 40px;
 }
 
 .sec1 h1{
@@ -30,11 +31,9 @@ body{
 	padding: 15px;
 }
 .sec1 img{
-	height: 70%;
-	width: 39%;
+	height: 250px;
+	width: 450px;
 	float: right;
-	max-width:100%;
-	vertical-align: middle;
 }
 
 span.req{
@@ -43,13 +42,14 @@ span.req{
 }
 
 .sec2{
-	height: 80%;
+	height: 875px;
 }
 
 
 .sec h2{
-	font-size: 35px;
+	font-size: 1.8rem;
 	padding: 12px;
+	line-height: 1.3;
 }
 .sec2 .gift-amt{
 	height: 24%;
@@ -58,7 +58,7 @@ span.req{
 
 .sec2 .gift-amt span {font-size: 26px;color: white;}
 
-.sec2 button{border-radius: 12px;display: inline-block;padding: 36px;margin: 24px;background: #737373;cursor: pointer;}
+.sec2 button{border-radius: 12px;display: inline-block;padding: 3%;margin: 2%;background: #737373;cursor: pointer;}
 
 .sec2 button.active{
 	background-color: #fb7c2b;
@@ -82,30 +82,28 @@ span.req{
     font-size: 20px;
 }
 
-.sec2 .gift-amt .other-field label{font-size: 26px;}
+.sec2 .gift-amt .other-field label{font-size: 24px;}
 
 
-.sec2 .gift-amt .other-field input[type=text]{height: 16%;font-size: 20px;padding: 14px;}
+.sec2 .gift-amt .other-field input[type=text]{height: 16%;font-size: 100%;padding: 1.5%;}
 
 .sec2 .amount{
 
 }
 
-.sec2 .gift-freq{
-}
+.sec2 .gift-freq{height: 32%;}
 
 .freq{
-    width: 62%;
-    margin: auto auto auto 4px;
-    height: -webkit-fill-available;
+    width: 75%;
+    margin: auto auto auto 1%;
+    height: 91%;
 }
 
-.freq1{border-bottom: none;border-top-left-radius: 5px;border-top-right-radius: 5px;border: 1px solid lightgray;padding: 10px;font-size: 22px;cursor: pointer;margin: auto auto auto 50px;}
+.freq1{border-bottom: none;border-top-left-radius: 5px;border-top-right-radius: 5px;border: 1px solid lightgray;padding: 2%;font-size: 22px;cursor: pointer;margin: auto auto auto 3%;}
 
-.freq2{border: 1px solid lightgray;padding: 10px;font-size: 22px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;cursor: pointer;margin: auto auto auto 50px;}
+.freq2{border: 1px solid lightgray;padding: 2%;font-size: 22px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;cursor: pointer;margin: auto auto auto 3%;}
 
 .sec2 .cols{
-	height: 30%;
 	-webkit-column-count: 2; /* Chrome, Safari, Opera */
 	-moz-column-count: 2; /* Firefox */
 	column-count: 2;
@@ -117,19 +115,18 @@ span.req{
 	/* column-rule: 1px solid #00020a; */
 	-webkit-column-width: 150px; /* Chrome, Safari, Opera */
 	-moz-column-width: 150px; /* Firefox */
-	column-width: 150px;
+	column-width: 175px;
 	z-index: 1;
+	height: 100%;
 }
 
-.sec2 .sponsor{height: 82%;margin-top: -39px;}
+.sec2 .sponsor{height: 81%;/* margin-top: -39px; */}
 
 .freq input[type=radio]{height: 18px;width: 15px;}
 
-.sponsor select{width: 60%;height: 18%;font-size: 22px;}
+.sponsor select{width: 315px;height: 40px;font-size: 22px;}
 
-.sec2 .tribute{
-
-}
+.sec2 .tribute{}
 
 .sec2 .tribute .tribute2{
 	font-size: 22px;
@@ -139,29 +136,20 @@ span.req{
 .tribute .tribute2 .checkbox{}
 
 .tribute .select{
+    margin-left: 25px;
 }
 
 .tribute .select select{height: 5%;width: 20%;font-size: 20px;}
 
 .tribute .honor{}
 
-.tribute .honor .honoree{height: 5%;width: 28%;border-radius: 5px;font-size: 20px;}
+.tribute .select input{height: 5%;width: 28%;border-radius: 5px;font-size: 20px;margin-left: 22px;}
 
 
 
-.sec3{
-
-}
+.sec3{height: 500px;}
 
 .sec3 .billing{
-
-}
-
-.sec .form{
-
-}
-
-.sec .col{
 	-webkit-column-count: 2; /* Chrome, Safari, Opera */
 	-moz-column-count: 2; /* Firefox */
 	column-count: 2;
@@ -173,35 +161,37 @@ span.req{
 	/* column-rule: 1px solid #00020a; */
 	-webkit-column-width: 150px; /* Chrome, Safari, Opera */
 	-moz-column-width: 150px; /* Firefox */
-	column-width: 150px;
-	/* height: 29%; */
+	column-width: 200px;
 	z-index: 1;
+	height: 450px;
 }
+.sec .form{}
 
-.sec3 .col1{
+.sec .col{height: 100%;/* width: 100%; */min-height: inherit;}
 
-}
+.sec3 .col1{}
 
-.sec3 .col2{
-
-}
+.sec3 .col2{}
 
 .sec3 .billing label{
-
+    font-size: 131%;
+    margin-left: 3%;
+    /* display: inline-block; */
+    width: 100%;
+    overflow: hidden;
 }
 
+.sec3 .billing .col input{width: 92%;height: 8%;margin: 1% 0% 2% 3%;font-size: 100%;}
+
+.secr .billing .col .
 
 .sec4{
 
 }
 
-.sec4 img{
+.sec4 img{height: 36px;width: 300px;margin: -2% 0% 2% 2%;}
 
-}
-
-.sec4 .payment{
-
-}
+.sec4 .payment{height: 12%;}
 
 .sec4 .payment .col3{
 
@@ -211,22 +201,30 @@ span.req{
 
 }
 
-.sec4 .payment label{
+.sec4 .payment label{font-size: 22px;margin-left: 2%;}
 
+.sec4 .payment input{width: 20%;font-size: 18px;margin-bottom: 2%;margin-left: 1%;}
+
+.sec5{margin-top: 3%;margin-bottom: 3%;}
+
+.sec5 .submit-pay{/* border: 2px solid rgba(115, 115, 115, 0.77); */width: 14%;font-size: 28px;margin: auto;text-align: center;padding: 2%;border-radius: 6%;background-color: white;color: #fa802b;box-shadow: 0 0 10px #00020a;}
+
+.sec5 .submit-pay:active {
+	background-color: white;
+	box-shadow: 0 3px rgba(102, 102, 102, 0.44);
+	transform: translateY(4px);
 }
 
-.sec5{
-
-}
-
-.sec5 .submit-pay{
-
-}
+.sec5 .submit-pay:hover {
+background-color:#fa802b;
+color:white;
+} 
 
 .sec6{
-
 }
 
 .sec6 p{
-	
+	font-size: 18px;
+	text-align: center;
+	padding: 1%;
 }

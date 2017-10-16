@@ -34,7 +34,7 @@ a.fa{
 	text-decoration: none;
 }
 
-.fa:hover{
+.fa:hover {
 	opacity: 0.4;
 }
 
@@ -89,6 +89,10 @@ a.fa{
 	background-size: 60px 60px;
 }
 
+.navbar li.active{
+    color: rgba(260, 166, 0, 0.65);
+}
+
 .join,.login,.logout,.donate {
 	text-transform: uppercase;
 	font-size: 14px;
@@ -124,7 +128,7 @@ a.fa{
 	color: rgba(280, 150, 0, 0.65);
 }
 
-.donate:active{
+.donate:active {
 	background-color: white;
 	box-shadow: 0 3px rgba(102, 102, 102, 0.44);
 	transform: translateY(4px);

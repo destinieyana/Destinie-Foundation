@@ -33,7 +33,7 @@
 				</p>
 				
 			</div>
-			<div class="donate-link">
+			<div class="donate-link donatePage">
 				<p>Become a donor</p>
 			</div>
 		</div>

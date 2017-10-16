@@ -103,11 +103,11 @@
 
 }
 
-.why{height: 455px;background-image: url(Images/why-bkgd.jpg);background-size: cover;background-position: center;}
+.why{height: 46%;background-image: url(Images/why-bkgd.jpg);background-size: cover;background-position: center;}
 
 .why .head{
     background-color: #000c3c;
-    height: 75px;
+    height: 17%;
 }
  
 .why .head p{
@@ -116,9 +116,9 @@
     color: white;
 }
 
-.why-text {height: 300px;/* background-image: url("Images/why-bkgd.jpg"); */}
+.why-text {height: 88%;/* background-image: url("Images/why-bkgd.jpg"); */}
 
-.why-text p{height: 150px;font-size: 27px;font-family: sans-serif;text-align: left;margin: 30px;font-weight: 600;}
+.why-text p{height: 86%;font-size: 28px;font-family: sans-serif;text-align: left;margin: 36px;font-weight: 600;color: antiquewhite;}
 
 .why-text img{
 	height: 300px;
@@ -127,9 +127,11 @@
 }
 
 .overlay{
-	background-color: blue transparent;
+	background-color: rgba(2,6,20,.4);
+	position: absolute;
+	height: 38.2%;
+	width: 90.5%;
 }
-
 .arrow-down {
 	width: 0;
 	height:0;

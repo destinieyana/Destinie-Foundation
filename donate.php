@@ -4,7 +4,8 @@
 	<head>
 		<title>Donate</title>
 		<link rel="stylesheet" type="text/css" href="donate.css">
-		<link rel="stylesheet" type="text/css" href="footer.css">
+        <link rel="stylesheet" type="text/css" href="footer.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 <body>
 	<div class="sec1 sec">
@@ -54,9 +55,8 @@
 					<option value="honor">in honor of</option>
 					<option value="memory">in memory of</option>
 				</select>
-			</div>
-			<div class="honor">
-				<input type="text" class="honoree" placeholder="Name of Honoree">
+			    
+				    <input type="text" class="honoree" placeholder="Name of Honoree">
 			</div>
 		</div>
 	</div>
@@ -83,22 +83,21 @@
 		<h2>Payment Information</h2>
 		<img src="Images/logos_cc.png" alt="Credit Cards">
 		<div class="payment form">
-			<div class="col3 col">
+			<div class="col3">
 				<label>Debit or Credit Card Number<span class="req">*</span><input type="text" name="card#"></label>
 				<label>Card Security Code<span class="req">*</span><input type="text" name="cvv"></label>
 			</div>
-			<div class="col4 col">
+			<div class="col4">
 				<label>Expiration Date<span class="req">*</span><input type="text" name="exp"></label>
 			</div>
 		</div>
 	</div>
-	<div class="sec5 sec">
-		<div class="submit-pay">DONATE NOW</div>
+	<div class="sec5">
+		<div class="submit-pay donate">DONATE NOW</div>
 	</div>
 	<div class="sec6 sec">
 		<p>By clicking the above button you agree to have your debit or credit card charged by Project C.U.R.E. Please review your submission, click Donate Now ONLY ONCE and allow a few moments for us to process your card. Your donation is secure and encrypted.</p>
 	</div>
-	<?php include("Includes/Footer.php");?>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

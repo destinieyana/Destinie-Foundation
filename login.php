@@ -24,6 +24,7 @@
 <?php include("welcome.php");?>
 
 <script>
+$(document).ready(function() {
     // Get the modal
     var modal2 = document.getElementById('id02');
 
@@ -82,7 +83,7 @@
           success: function (data, status, jqXHR) {
             console.log(data);
             if (data == "Wrong Email or Password") {
-              $('#wrng-pass').html(data);
+              $('#wrng-pass').html(data).css("color", "red");
             } else if (data == "Welcome!"){
                 wmodal.style.display = "block";
                 modal2.style.display= "none";
@@ -97,6 +98,6 @@
         }); 
       }
     });
-
+});
     
       </script>
