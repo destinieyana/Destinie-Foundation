@@ -1,5 +1,7 @@
 <?php
 
+require_once('./bootstrap.php');
+
 /*
  * For general use on OTI websites and in API
  * IT Team 2014 - 2015 Overseas Travel International
@@ -16,7 +18,7 @@
 //	Diners Club/ Carte Blanche 	38000000000006
 //	MasterCard                      5424000000000015
 // Include authorize framework
-require_once ROOT . '/vendors/authorize/anet_php_sdk/AuthorizeNet.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . ROOT_URL . 'vendor/authorizenet/authorizenet/AuthorizeNet.php';
 
 if ('development' == ENVIRONMENT) {
     // IF WE ARE ON LOCAL
@@ -25,8 +27,8 @@ if ('development' == ENVIRONMENT) {
     define("AUTHORIZENET_SANDBOX", "TRUE");
     define("AUTHORIZENET_TEST_REQUEST", "FALSE");
     define("AUTHORIZENET_MD5_SETTING", "");
-    //define('PAY_URL', FULL_URL.'/anet/development_gateway');
-    define('PAY_URL', 'https://test.authorize.net/gateway/transact.dll');
+    define('PAY_URL', FULL_URL.'/anet/development_gateway');
+    //define('PAY_URL', 'https://test.authorize.net/gateway/transact.dll');
     define('ANET_SITE_ROOT', FULL_URL);
 } else {
     // IF WE ARE NOT ON LOCAL
