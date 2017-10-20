@@ -1,0 +1,23 @@
+{
+	"name": "destinieyana/Destinie-Foundation",
+	"description": "Destinie Foundation",
+	"type": "website",
+	"keywords": ["charity"],
+	"homepage": "",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.2.8",
+		"ext-mcrypt": "*"
+	},
+        "repositories": [
+            {
+                "type" : "vcs",
+                "url" : "https://github.com/nrk/predis"
+            }
+        ],
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*"
+	},
+        "require": {
+        }
+}
