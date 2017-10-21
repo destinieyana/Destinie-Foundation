@@ -4,14 +4,12 @@ body{
 }
 
 .sec{
-	/* border:2px solid; */
-	/* border-color: black; */
 	background: #fff;
 	width: 1418px;
 	box-shadow: 0 0 10px #00020a;
 	border-radius: 5px;
 	margin:auto;
-	/* min-width: 75%; */
+	margin-bottom: 25px;
 }
 
 .sec1{
@@ -147,7 +145,7 @@ span.req{
 
 
 
-.sec3{height: 500px;}
+.sec3{height: 500px;margin-top: 28px;}
 
 .sec3 .billing{
 	-webkit-column-count: 2; /* Chrome, Safari, Opera */
@@ -228,3 +226,5 @@ color:white;
 	text-align: center;
 	padding: 1%;
 }
+
+.select button{font-size: 20px;padding: 10px;color: white;background: rgb(252, 140, 43);text-transform: uppercase;margin-left: 530px;}

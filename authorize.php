@@ -27,7 +27,7 @@ if ('development' == ENVIRONMENT) {
     define("AUTHORIZENET_SANDBOX", "TRUE");
     define("AUTHORIZENET_TEST_REQUEST", "FALSE");
     define("AUTHORIZENET_MD5_SETTING", "");
-    define('PAY_URL', FULL_URL.'/anet/development_gateway');
+    define('PAY_URL', 'http://'.FULL_URL . ROOT_URL.'/payment-action.php');
     //define('PAY_URL', 'https://test.authorize.net/gateway/transact.dll');
     define('ANET_SITE_ROOT', FULL_URL);
 } else {

@@ -1,38 +1,7 @@
-<?php require_once('./bootstrap.php');?>
-<?php require_once('./authorize.php');?>
-
-<?php
-// This sets the fingerprint
-$data = array();
-$data['transaction_amount'] = 1.75;
-$time = time();
-$fp_sequence = $time;
-$fp = AuthorizeNetDPM::getFingerprint(AUTHORIZENET_API_LOGIN_ID, AUTHORIZENET_TRANSACTION_KEY, $data['transaction_amount'], $fp_sequence, $time);
-$sim = new AuthorizeNetSIM_Form(
-    array(
-        'x_amount' => $data['transaction_amount'],
-        'x_fp_sequence' => $fp_sequence,
-        'x_fp_hash' => $fp,
-        'x_fp_timestamp' => $time,
-        'x_relay_response' => "TRUE",
-        'x_relay_url' => ANET_RELAY_URL,
-        'x_test_request' => AUTHORIZENET_TEST_REQUEST,
-        'x_login' => AUTHORIZENET_API_LOGIN_ID,
-    )
-);
-$sim_hidden_fields_string = $sim->getHiddenFieldString();
-$amount = $data['transaction_amount'];
-$session_id = $_COOKIE['PHPSESSID'];
-$session_id_hash = strtoupper(md5('dest_temp_salt' . $_COOKIE['PHPSESSID']));
-?>
-
-<?php //if ('production' != ENVIRONMENT) echo 'sending payment to ' . PAY_URL . '<br />Relay = ' . ANET_RELAY_URL; ?>
-
 <html>
     <head>
         <title>Donate</title>
-        <link rel="stylesheet" type="text/css" href="donate.css">
-        <link rel="stylesheet" type="text/css" href="footer.css">
+        <link rel="stylesheet" type="text/css" href="donate.css"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 <body>
@@ -41,17 +10,19 @@ $session_id_hash = strtoupper(md5('dest_temp_salt' . $_COOKIE['PHPSESSID']));
         <p><img src="Images/donate.jpeg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt fermentum est, ut porta metus placerat ac. Aliquam id risus laoreet nisl vehicula commodo et a neque. Mauris et ullamcorper enim, ut sollicitudin neque.</p>	
     </div>
     <div class="sec2 sec">
+        <form method="POST" action="billing.php">
         <h2>Gift Amount<span class="req">*</span></h2>
+        <input type="hidden" name="amount" value="100" />
         <div class="gift-amt">
-            <button type="button" class="amount"><span>$10</span></button>
-            <button type="button" class="amount"><span>$25</span></button>
-            <button type="button" class="amount"><span>$50</span></button>
-            <button type="button" class="amount"><span>$75</span></button>
-            <button type="button" class="amount"><span>$100</span></button>
-            <button type="button" class="amount" id="other"><span>OTHER</span></button>
+            <button type="button" value="10" class="amount"><span>$10</span></button>
+            <button type="button" value="25" class="amount"><span>$25</span></button>
+            <button type="button" value="50" class="amount"><span>$50</span></button>
+            <button type="button" value="75" class="amount"><span>$75</span></button>
+            <button type="button" value="100" class="amount active"><span>$100</span></button>
+            <button type="button" value="" class="amount" id="other"><span>OTHER</span></button>
             <div class="other-field hide">
                 <label>Other Amount<span class="req">*</span>$</label>
-                <input name="other-amt" type="text">
+                <input name="other-amt" type="text" value="">
             </div>
         </div>
         <div class="gift-freq">
@@ -79,139 +50,55 @@ $session_id_hash = strtoupper(md5('dest_temp_salt' . $_COOKIE['PHPSESSID']));
                 <input type="checkbox" class="checkbox" value="One-time gift">Yes, make this gift  
             </div>
             <div class="select">
-                <select>
+                <select name="type">
                     <option value="honor">in honor of</option>
                     <option value="memory">in memory of</option>
                 </select>
-
-                    <input type="text" class="honoree" placeholder="Name of Honoree">
-            </div>
+                <input type="text" class="honoree" placeholder="Name of Honoree">
+                <button type="submit" class="continue">Continue</button>
+            </div> 
         </div>
+        </form>
     </div>
-    <div class="sec3 sec">
-        <h2>Billing Information</h2>
-            <div class= "formPaymentElement">
-                <form id="form_payment" method="post" action="<?php echo PAY_URL; ?>">
-                    <?php echo $sim_hidden_fields_string; ?>
 
-                    <input type="hidden" name="form" value="form_payment" />
-                    <input type="hidden" name="orig_x_amount" value="<?php echo $amount; ?>" />
-                    <input type="hidden" name="orig_x_fp_hash" value="<?php echo $fp; ?>" />
-
-                    <input type="hidden" name="<?php echo 'des_temp_index'; ?>" value="<?php echo $session_id; ?>" />
-                    <input type="hidden" name="<?php echo 'des_temp_hash_index'; ?>" value="<?php echo $session_id_hash; ?>" />
-
-                    <div class="billing form">
-                        <div class="col1 col">
-                            <label>First Name
-                                <span class="req">*</span>
-                                <input type="text" class="text required" id="x_first_name" size="15" name="x_first_name" value="fail"></input>
-                            </label>
-                            <label>Address Line 1
-                                <span class="req">*</span>
-                                <input type="text" class="text required" id="x_address" size="26" name="x_address" value="123 Main Street"></input>
-                            </label>				
-                            <label>City
-                                <span class="req">*</span>
-                                <input type="text" class="text required" id="x_city" size="8" name="x_city" value="Beverly Hills"></input>
-                            </label>
-                            <label>Zip/Postal Code
-                                <span class="req">*</span>
-                                <input type="text" class="text required" id="x_zip" size="9" name="x_zip" value="90210"></input>
-                            </label>
-                            <label>Phone
-                                <input type="text" name="phone">
-                            </label>
-                        </div>
-                        <div class="col2 col">
-                            <label>Last Name
-                                <span class="req">*</span>
-                                <input type="text" class="text required" id="x_last_name" size="14" name="x_last_name" value="Doe"></input>
-                            </label>
-                            <label>Address Line 2
-                                <input type="text" class="text required" id="x_address2" size="26" name="x_address"></input>
-                            </label>
-                            <label>State/Province
-                                <span class="req">*</span>
-                                <input type="text" class="text required" id="x_state" size="4" name="x_state" value="California"></input>
-                            </label>
-                            <label>Country
-                                <span class="req">*</span>
-                                <input type="text" class="text required" id="x_country" size="17" name="x_country" value="USA"></input>
-                            </label>
-                            <label>Email
-                                <span class="req">*</span>
-                                <input type="email" name="email">
-                            </label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-    </div>
-    <div class="sec4 sec">
-        <h2>Payment Information</h2>
-        <img src="Images/logos_cc.png" alt="Credit Cards">
-        <div class="payment form">
-            <div class="col3">
-                <label>Debit or Credit Card Number
-                    <span class="req">*</span>
-                    <input type="text" class="text required" id="x_card_num" size="15" name="x_card_num" value="<?php if('production' != ENVIRONMENT) echo '4007000000027'; ?>">
-                </label>
-                <label>Card Security Code
-                    <span class="req">*</span>
-                    <input type="text" class="text required" id="x_card_code" size="4" name="x_card_code" value="<?php if('production' != ENVIRONMENT) echo '123'; ?>"></input>
-                </label>
-            </div>
-            <div class="col4">
-                <label>Expiration Date
-                    <span class="req">*</span>
-                    <input type="text" class="text required" id="x_exp_date" size="4" name="x_exp_date" value="<?php if('production' != ENVIRONMENT) echo '1/25'; ?>"></input>
-                </label>
-                <label>Total: $
-                    <input type="text"> 
-                </label>
-
-            </div>
-        </div>
-    </div>
-    <div class="sec5">
-        <div class="submit-pay donate">DONATE NOW</div>
-    </div>
-    <div class="sec6 sec">
-        <p>By clicking the above button you agree to have your debit or credit card charged by Project C.U.R.E. Please review your submission, click Donate Now ONLY ONCE and allow a few moments for us to process your card. Your donation is secure and encrypted.</p>
-    </div>
-<script
+  <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script>
-$('.amount').on('click', function(event) {
-    $('.amount').removeClass('active');
-    $(this).toggleClass('active');
-    $(".hide").hide();
-});
+$(document).ready(function() {
 
-$("#other").click(function(){
-    $(".hide").show();
-});
+    $('.amount').on('click', function(event) {
+        var theAmount = $(this).attr('value');
+        $('[name=amount]').val(theAmount);
+        $('[name=other-amt]').val("0");
+        $('.amount').removeClass('active');
+        $(this).toggleClass('active');
+        $(".hide").hide();
+    });
 
-$('.radio-button').on("click", function (event) {
-    var this_input = $(this);
-    if (this_input.attr('checked1') == '11') {
-        this_input.attr('checked1', '11')
-    }
-    else {
-        this_input.attr('checked1', '22')
-    }
-    $('.radio-button').prop('checked', false);
-    if (this_input.attr('checked1') == '11') {
-        this_input.prop('checked', false);
-        this_input.attr('checked1', '22')
-    }
-    else {
-        this_input.prop('checked', true);
-        this_input.attr('checked1', '11')
-    }
+    $("#other").click(function(){
+        $(".hide").show();
+    });
+
+    $('.radio-button').on("click", function (event) {
+        var this_input = $(this);
+        if (this_input.attr('checked1') == '11') {
+            this_input.attr('checked1', '11')
+        }
+        else {
+            this_input.attr('checked1', '22')
+        }
+        $('.radio-button').prop('checked', false);
+        if (this_input.attr('checked1') == '11') {
+            this_input.prop('checked', false);
+            this_input.attr('checked1', '22')
+        }
+        else {
+            this_input.prop('checked', true);
+            this_input.attr('checked1', '11')
+        } 
+    });
 });
 </script>
 </body>
