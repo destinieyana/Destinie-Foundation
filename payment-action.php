@@ -2,6 +2,11 @@
 require_once('./bootstrap.php');
 require_once $_SERVER['DOCUMENT_ROOT'] . ROOT_URL . '/authorize.php';
 
+ob_start();
+
+$amount = $data['transaction_amount'];
+$session_id = $_cookie['phpsessid'];
+
 class AnetController {
     /**
      * This relay should only be used to determine where we should redirect the user
@@ -14,10 +19,11 @@ class AnetController {
             if ($response->isAuthorizeNet()) {
                 if ($response->approved) {
 
-                    $return_url = ANET_SITE_ROOT . 'shop';
+                    $return_url = $this->processSuccessfulTransaction();
+
                 } else {
                     // TRANSACTION NOT APPROVED
-                    $return_url = ANET_SITE_ROOT . 'shop?response_reason_code=' . $response->response_reason_code . '&response_code=' . $response->response_code . '&response_reason_text=' . $response->response_reason_text;
+                    $return_url = $this->processFailedTransaction();
                 }
 
                 echo AuthorizeNetDPM::getRelayResponseSnippet($return_url);
@@ -30,6 +36,8 @@ class AnetController {
     /**
      * Do your heavy lifting in here
      */
+   
+
     public function silent() {
 
         // PROCESS TRANSACTION
@@ -39,6 +47,14 @@ class AnetController {
                 if ($response->approved) {
 
                     // TRANSACTION APPROVED
+                    $sql= "INSERT INTO donations(`amount`, `user_id`) VALUES(:amount ,:user_id);";
+
+                    $pdoStmt = $conn->prepare($sql);
+                    $pdoStmt->bindValue(":amount", $amount);
+                    $pdoStmt->bindValue(":user_id", $session_id);
+                    $exResults = $pdoStmt->execute(); 
+                    var_dump($amount);
+
                 } else {
                     // TRANSACTION NOT APPROVED
                 }
@@ -47,21 +63,40 @@ class AnetController {
             }
         }
     }
-    
-    public function development_gateway() {
-
-        echo "Loud!\n";
-        var_dump($_POST);
-    }
 
     public function development_gateway_silent() {
-
         echo "Silent!\n";
         var_dump($_POST);
     }
 
+    public function development_gateway() {
+
+        $testResult = true;
+
+        if ($testResult) {
+            $return_url = $this->processSuccessfulTransaction();
+        } else {
+            $return_url = $this->processFailedTransaction();
+        }
+
+        header("Location: $return_url");
+    }
+
+    private function processSuccessfulTransaction() {
+
+        // Redirect to Thank you
+        return $_SERVER['DOCUMENT_ROOT'] . ROOT_URL . '/thankyou.php';
+    }
+
+    private function processFailedTransaction() {
+
+        // Redirect to Failed
+        return "url/to/failed/page.php";
+    }
 }
 
 $anetController = new AnetController();
 $anetController->development_gateway();
 $anetController->development_gateway_silent();
+
+?>

@@ -17,7 +17,7 @@ $sim = new AuthorizeNetSIM_Form(
 );
 $sim_hidden_fields_string = $sim->getHiddenFieldString();
 $amount = $data['transaction_amount'];
-$session_id = $_COOKIE['PHPSESSID'];
+$session_id = $_cookie['phpsessid'];
 $session_id_hash = strtoupper(md5(SALT . $_COOKIE['PHPSESSID']));
 ?>
 
