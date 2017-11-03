@@ -1,6 +1,15 @@
 <?php
-
+ob_start();
 session_start();
+
+$hostname='localhost';
+$dbusername='root';
+$dbpassword='root';
+$database='foundation';
+
+// Connect to the database
+$conn = new PDO("mysql:host=$hostname;dbname=$database",$dbusername,$dbpassword);
+
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -13,8 +22,12 @@ define('ENVIRONMENT', 'development');
 define('FULL_URL', 'localhost:8888');
 ?>
 
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+
+
+

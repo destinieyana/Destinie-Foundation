@@ -2,12 +2,12 @@
 require_once('./bootstrap.php');
 require_once $_SERVER['DOCUMENT_ROOT'] . ROOT_URL . '/authorize.php';
 
-ob_start();
-
-$amount = $data['transaction_amount'];
-$session_id = $_cookie['phpsessid'];
 
 class AnetController {
+
+    // Holds a database connection
+    private $database;
+
     /**
      * This relay should only be used to determine where we should redirect the user
      */
@@ -16,18 +16,22 @@ class AnetController {
         // PROCESS TRANSACTION
         if (count($_POST)) {
             $response = new AuthorizeNetSIM;
+            // Im not being hacked right ?
             if ($response->isAuthorizeNet()) {
+
+                // Was this approved
                 if ($response->approved) {
 
-                    $return_url = $this->processSuccessfulTransaction();
+                    $return_url = $this->getURLForSuccessfulTransaction();
 
                 } else {
                     // TRANSACTION NOT APPROVED
-                    $return_url = $this->processFailedTransaction();
+                    $return_url = $this->getURLForFailedTransaction();
                 }
 
                 echo AuthorizeNetDPM::getRelayResponseSnippet($return_url);
             } else {
+                // This may be a hack
                 echo "MD5 Hash failed. Transaction has not been processed";
             }
         }
@@ -36,27 +40,22 @@ class AnetController {
     /**
      * Do your heavy lifting in here
      */
-   
-
     public function silent() {
 
         // PROCESS TRANSACTION
         if (count($_POST)) {
             $response = new AuthorizeNetSIM;
+
+            // Im not being hacked right ?
             if ($response->isAuthorizeNet()) {
+
                 if ($response->approved) {
 
-                    // TRANSACTION APPROVED
-                    $sql= "INSERT INTO donations(`amount`, `user_id`) VALUES(:amount ,:user_id);";
-
-                    $pdoStmt = $conn->prepare($sql);
-                    $pdoStmt->bindValue(":amount", $amount);
-                    $pdoStmt->bindValue(":user_id", $session_id);
-                    $exResults = $pdoStmt->execute(); 
-                    var_dump($amount);
+                    $this->processSuccessfulTransaction();
 
                 } else {
                     // TRANSACTION NOT APPROVED
+                    $this->processFailedTransaction();
                 }
             } else {
                 echo "MD5 Hash failed. Transaction has not been processed";
@@ -64,65 +63,87 @@ class AnetController {
         }
     }
 
-    public function development_gateway_silent() {
-        echo "Silent!\n";
-        var_dump($_POST);
-    }
+    public function test_index() {
 
-    public function development_gateway() {
+        $this->recreateSession();
 
-        $testResult = true;
-
-        if ($testResult) {
-            $return_url = $this->processSuccessfulTransaction();
+        if (true) {
+            $return_url = $this->getURLForSuccessfulTransaction();
         } else {
-            $return_url = $this->processFailedTransaction();
+            $return_url = $this->getURLForFailedTransaction();
         }
 
         header("Location: $return_url");
     }
 
-    private function processSuccessfulTransaction() {
+    public function test_silent() {
+
+        echo "Silent!\n";
+
+        $this->recreateSession();
+
+        $this->saveToDatabase();
+    }
+
+    private function saveToDatabase() {
+        
+        $amount = $_POST['x_amount'];
+        $session_id = $_SESSION['user_record']['id']; 
+        // TRANSACTION APPROVED
+        $sql= "INSERT INTO donations(`amount`, `user_id`, `ip`) VALUES(:amount ,:user_id, :ip);";
+
+        //connect to database in bootstrap?
+        $pdoStmt = $this->database->prepare($sql);
+        $pdoStmt->bindValue(":amount", $amount);
+        $pdoStmt->bindValue(":user_id", $session_id);
+        $pdoStmt->bindValue(":ip", $_SERVER['REMOTE_ADDR']);
+        $pdoStmt->execute(); 
+    }
+
+    private function getURLForSuccessfulTransaction() {
 
         // Redirect to Thank you
-        return $_SERVER['DOCUMENT_ROOT'] . ROOT_URL . '/thankyou.php';
+        return ROOT_URL . 'thankyou.php';
     }
 
-    private function processFailedTransaction() {
+    private function getURLForFailedTransaction() {
 
         // Redirect to Failed
-        return "url/to/failed/page.php";
+        return ROOT_URL . 'sorry.php';
     }
 
-    private function checkSession() {
+    private function recreateSession() {
 
         // If no session has been started...
         if (session_status() == PHP_SESSION_NONE) {
             // Check if we passed a session id via post
-            if(!isset($_POST[self::SESSION_ID_INDEX])){
-                $this->debug('no cookie');
-                // If not, start a new session
-                $this->startSession();
+            if(!isset($_POST['des_temp_index'])){
+                throw new Error('under attack!');
             } else {
-                $this->debug('passed cookie');
                 // If so, resume the session that we passed via post SESSION_ID_INDEX and SESSION_HASH_INDEX
-                $cookie = filter_input(INPUT_POST, self::SESSION_ID_INDEX, FILTER_SANITIZE_STRING);
-                $hash = filter_input(INPUT_POST, self::SESSION_HASH_INDEX, FILTER_SANITIZE_STRING);
+                $cookie = filter_input(INPUT_POST, 'des_temp_index', FILTER_SANITIZE_STRING);
+                $hash = filter_input(INPUT_POST, 'des_temp_hash_index', FILTER_SANITIZE_STRING);
                 // Prevent session hijacking
                 if($this->verifyHash($cookie,$hash)){
-                    $this->debug('HASH GOOD');
                     $this->startSession($cookie);
                 } else {
-                    $this->debug('HASH NO GOOD');
+                    throw new Error('under attack!');
                 }
-                
             }
         }
+    }
+
+    private function verifyHash($value, $hash) {
+        return crypt($value, $hash) == $hash;
+    }
+
+    public function setConnection($conn) {
+        $this->database = $conn;
     }
 }
 
 $anetController = new AnetController();
-$anetController->development_gateway();
-$anetController->development_gateway_silent();
+$anetController->setConnection($conn);
+$anetController->test_index();
+$anetController->test_silent();
 
-?>

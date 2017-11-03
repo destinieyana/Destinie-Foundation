@@ -2,9 +2,16 @@
 <?php require_once('./authorize.php');?>
 
 <?php
+
 // This sets the fingerprint
 $data = array();
-$data['transaction_amount'] = ($_POST['amount'] || $_POST['other-amt']);
+
+if ($_POST['amount']) {
+    $data['transaction_amount'] = $_POST['amount'];
+} else {
+    $data['transaction_amount'] = $_POST['other-amt'];
+}
+
 $time = time();
 $fp_sequence = $time;
 $fp = AuthorizeNetDPM::getFingerprint(AUTHORIZENET_API_LOGIN_ID, AUTHORIZENET_TRANSACTION_KEY, $data['transaction_amount'], $fp_sequence, $time);
