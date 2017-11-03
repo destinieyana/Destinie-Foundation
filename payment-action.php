@@ -93,6 +93,32 @@ class AnetController {
         // Redirect to Failed
         return "url/to/failed/page.php";
     }
+
+    private function checkSession() {
+
+        // If no session has been started...
+        if (session_status() == PHP_SESSION_NONE) {
+            // Check if we passed a session id via post
+            if(!isset($_POST[self::SESSION_ID_INDEX])){
+                $this->debug('no cookie');
+                // If not, start a new session
+                $this->startSession();
+            } else {
+                $this->debug('passed cookie');
+                // If so, resume the session that we passed via post SESSION_ID_INDEX and SESSION_HASH_INDEX
+                $cookie = filter_input(INPUT_POST, self::SESSION_ID_INDEX, FILTER_SANITIZE_STRING);
+                $hash = filter_input(INPUT_POST, self::SESSION_HASH_INDEX, FILTER_SANITIZE_STRING);
+                // Prevent session hijacking
+                if($this->verifyHash($cookie,$hash)){
+                    $this->debug('HASH GOOD');
+                    $this->startSession($cookie);
+                } else {
+                    $this->debug('HASH NO GOOD');
+                }
+                
+            }
+        }
+    }
 }
 
 $anetController = new AnetController();
